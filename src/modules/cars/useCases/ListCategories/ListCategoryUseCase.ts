@@ -12,4 +12,5 @@ class ListCategoriesUseCase {
     return categories;
  }
 }
+
 export { ListCategoriesUseCase };
