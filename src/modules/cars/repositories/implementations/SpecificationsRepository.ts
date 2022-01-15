@@ -20,6 +20,7 @@ class SpecificationsRepository implements ISpecificationsRepository {
     });
 
     this.specifications.push(specification);
+    console.log(specification);
   }
 
   // list Specifications
