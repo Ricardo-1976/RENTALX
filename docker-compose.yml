@@ -1,7 +1,8 @@
  version: "3.7"
 
  services:
-   app:
+  
+app:
     build: .
     container_name: rentx
     ports:
