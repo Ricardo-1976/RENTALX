@@ -4,7 +4,7 @@ import swaggerUI from 'swagger-ui-express';
 import swaggerFile from "./swagger.json";
 
 import "./database";
-//Mau olhar 
+
 import { router } from './routes';
 
 const app = express();
