@@ -2,9 +2,10 @@
   "type": "postgres",
   "port": 5432,
   "host": "localhost",
-  "username": "docker",
-  "password": "ignite",
+  "username":"benilda",
+  "password": "amordaminhavida",
   "database": "rentx",
+  "entities": ["**/entities/**/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
     "migrationsDir": "./src/database/migrations"

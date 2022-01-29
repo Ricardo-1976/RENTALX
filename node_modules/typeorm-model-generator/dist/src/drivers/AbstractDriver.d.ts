@@ -1,0 +1,30 @@
+import { WithLengthColumnType, WithPrecisionColumnType, WithWidthColumnType } from "typeorm/driver/types/ColumnTypes";
+import { DataTypeDefaults } from "typeorm/driver/types/DataTypeDefaults";
+import IConnectionOptions from "../IConnectionOptions";
+import { Entity } from "../models/Entity";
+import { RelationInternal } from "../models/RelationInternal";
+import IGenerationOptions from "../IGenerationOptions";
+export default abstract class AbstractDriver {
+    abstract standardPort: number;
+    abstract standardSchema: string;
+    abstract standardUser: string;
+    abstract defaultValues: DataTypeDefaults;
+    ColumnTypesWithWidth: WithWidthColumnType[];
+    ColumnTypesWithPrecision: WithPrecisionColumnType[];
+    ColumnTypesWithLength: WithLengthColumnType[];
+    static FindManyToManyRelations(dbModel: Entity[]): Entity[];
+    GetDataFromServer(connectionOptions: IConnectionOptions, generationOptions: IGenerationOptions): Promise<Entity[]>;
+    static FilterGeneratedTables(dbModel: Entity[], skipTables: string[], onlyTables: string[]): Entity[];
+    abstract ConnectToServer(connectionOptons: IConnectionOptions): Promise<void>;
+    abstract GetAllTables(schemas: string[], dbNames: string[]): Promise<Entity[]>;
+    static GetRelationsFromRelationTempInfo(relationsTemp: RelationInternal[], entities: Entity[], generationOptions: IGenerationOptions): Entity[];
+    abstract GetCoulmnsFromEntity(entities: Entity[], schemas: string[], dbNames: string[]): Promise<Entity[]>;
+    abstract GetIndexesFromEntity(entities: Entity[], schemas: string[], dbNames: string[]): Promise<Entity[]>;
+    abstract GetRelations(entities: Entity[], schemas: string[], dbNames: string[], generationOptions: IGenerationOptions): Promise<Entity[]>;
+    static FindPrimaryColumnsFromIndexes(dbModel: Entity[]): void;
+    abstract DisconnectFromServer(): Promise<void>;
+    abstract CreateDB(dbName: string): Promise<void>;
+    abstract DropDB(dbName: string): Promise<void>;
+    abstract CheckIfDBExists(dbName: string): Promise<boolean>;
+    protected static buildEscapedObjectList(dbNames: string[]): string;
+}
