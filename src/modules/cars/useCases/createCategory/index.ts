@@ -1,5 +1,5 @@
 import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
-import { CreateCategoryController } from "./createCategoryController";
+/*import { CreateCategoryController } from "./createCategoryController";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
 export default (): CreateCategoryController => {
@@ -13,3 +13,4 @@ export default (): CreateCategoryController => {
 
   return createCategoryController;
 };
+*/
