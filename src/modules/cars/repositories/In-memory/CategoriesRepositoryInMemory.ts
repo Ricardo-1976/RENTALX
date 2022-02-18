@@ -22,8 +22,8 @@ import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesReposit
        description,
      });
 
-     this.categories.push(category);  
+     this.categories.push(category);
    }
  }
 
- export { CategoriesRepositoryInMemory }; 
+ export { CategoriesRepositoryInMemory };
