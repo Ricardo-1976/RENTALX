@@ -6,8 +6,8 @@
   "password": "ricardo123",
   "database": "rentx",
   "entities": ["**/entities/**/*.ts"],
-  "migrations": ["./src/database/migrations/*.ts"],
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
