@@ -47,7 +47,7 @@ export class CreateCars1645889334522 implements MigrationInterface {
               isNullable: true,
             },
             {
-              name: "create_at",
+              name: "created_at",
               type: "timestamp",
               default: "now()",
             }
@@ -55,7 +55,7 @@ export class CreateCars1645889334522 implements MigrationInterface {
           foreignKeys: [
             {
               name: "FKCategoryCar",
-              referencedTableName: "categoreis",
+              referencedTableName: "categories",
               referencedColumnNames: ["id"],
               columnNames: ["category_id"],
               onDelete: "SET NULL",
