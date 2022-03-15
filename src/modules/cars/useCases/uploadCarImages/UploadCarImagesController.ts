@@ -19,7 +19,7 @@ class UploadCarImagesController {
       car_id: id,
       images_name,
     });
-
+ 
     return response.status(201).send();
   }
 }

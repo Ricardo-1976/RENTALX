@@ -10,7 +10,7 @@ class CarImage {
   car_id: string;
 
   @Column()
-  image_name: string;
+  Image_name: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -18,7 +18,6 @@ class CarImage {
   constructor() {
     if(!this.id) {
       this.id = uuidV4();
-
     }
   }
 }
