@@ -4,6 +4,7 @@ import { ICreateRentalDTO } from "@modules/rentals/dtos/ICreateRentalDTO";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 
 import { Rental } from "../entities/Rental";
+import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 
 class RentalsRepository implements IRentalsRepository {
   private repository: Repository<Rental>;
@@ -57,7 +58,8 @@ class RentalsRepository implements IRentalsRepository {
 
   async findByUserId(user_id: string): Promise<Rental[]> {
     const rental = await this.repository.find({
-      user_id
+      where: { user_id },
+      relations: ["car"]
     });
     return rental;
   }
